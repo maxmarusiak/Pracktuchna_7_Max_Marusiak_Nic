@@ -7,6 +7,9 @@ namespace StudentGroupSystem.Models
     public class StudentGroup : BaseEntity
     {
         public string GroupName { get; set; }
+        public Point[] LabPlaces { get; private set; } = Array.Empty<Point>();
+        public GradeRecord[] GradeHistory { get; private set; } = Array.Empty<GradeRecord>();
+
 
         public List<UniversityMember> Members { get; set; }
 
@@ -16,6 +19,23 @@ namespace StudentGroupSystem.Models
             GroupName = name;
             Members = new List<UniversityMember>();
         }
+
+        public void AddGrade(int studentId, GradeRecord record)
+        {
+            GradeHistory = GradeHistory.Append(record).ToArray();
+        }
+
+        public void AssignLabPlace(int studentId, Point place)
+        {
+            LabPlaces = LabPlaces.Append(place).ToArray();
+        }
+
+        public StudentRecord[] GetAllRecords()
+        {
+            return Students.Select(s => s.GetRecord()).ToArray();
+        }
+
+
 
         public override string ToString()
         {
