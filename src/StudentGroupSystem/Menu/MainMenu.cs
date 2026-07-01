@@ -59,7 +59,24 @@ namespace StudentGroupSystem.Menu
                     case "35": DrawAllShapes(); break;
                     case "36": PrintAllShapes(); break;
                     case "37": DemonstrateDynamicBinding(); break;
-
+                    case 38:
+                        DemoPointAndGrade();
+                        break;
+                    case 39:
+                        new PerformanceTest().Run();
+                        break;
+                    case 40:
+                        ConvertStudentToRecord();
+                        break;
+                    case 41:
+                        ShowGradeHistory();
+                        break;
+                    case 42:
+                        TestEqualsStructs();
+                        break;
+                    case 43:
+                        group.OptimizeStorage();
+                        break;
                     case "0": return;
 
                     default:
