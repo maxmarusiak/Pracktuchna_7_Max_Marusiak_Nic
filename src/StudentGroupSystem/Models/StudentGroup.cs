@@ -34,8 +34,13 @@ namespace StudentGroupSystem.Models
         {
             return Students.Select(s => s.GetRecord()).ToArray();
         }
+        public void OptimizeStorage()
+        {
+            GradeHistory = GradeHistory.Distinct().ToArray();
+            LabPlaces = LabPlaces.Distinct().ToArray();
 
-
+            Console.WriteLine("Storage optimized using structs.");
+        }
 
         public override string ToString()
         {
